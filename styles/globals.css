@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .background {
+        @apply bg-gradient-to-br from-indigo-100 to-blue-200;
+    }
+    body {
+        @apply background;
+    }
+
+    p {
+        @apply text-2xl lg:text-3xl leading-10 tracking-wide;
+    }
+
+    h1 {
+        @apply text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl whitespace-pre-wrap;
+    }
+    h2 {
+        @apply text-2xl sm:text-4xl md:text-5xl;
+    }
+    Link {
+        @apply cursor-pointer;
+    }
+    button {
+        @apply p-3 hover:bg-blue-400 bg-blue-500 justify-center shadow-md shadow-gray-400 rounded  font-semibold text-white tracking-wide;
+    }
+    .contactInfo {
+        @apply text-left text-lg pl-0 sm:text-xl md:text-2xl  lg:text-3xl  font-semibold  py-3 md:py-3;
+    }
+    .specialText {
+        @apply bg-gradient-to-br from-blue-700 to-purple-600 text-transparent bg-clip-text;
+    }
+    .socialIcons {
+        @apply flex justify-center cursor-pointer hover:bg-slate-50 rounded-full items-center shadow-lg w-10 h-10 sm:w-16 sm:h-16 xl:w-20 xl:h-20;
+    }
+    .navItem {
+        @apply cursor-pointer tracking-wide pr-10  uppercase border-transparent text-xl hover:text-neutral-500;
+    }
+    .hoverUp {
+        @apply transition-all duration-300  hover:-translate-y-2;
+    }
+    .hoverDown {
+        @apply transition-all duration-300 hover:translate-y-1;
+    }
+}
+
+.scroll-downs {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 34px;
+    height: 55px;
+}
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 3px solid black;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: black;
+    animation-name: scroll;
+    animation-duration: 1.25s;
+    animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+    animation-iteration-count: infinite;
+}
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(5px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}
