@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Box from '@mui/material/Box'
-import LinearProgress from '@mui/material/LinearProgress'
 import Image from 'next/image'
 import Html from '../../public/skills/html.png'
 import Css from '../../public/skills/css.png'

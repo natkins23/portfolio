@@ -3,12 +3,9 @@ import React from 'react'
 import react, { useState } from 'react'
 import { Link } from 'react-scroll'
 import { useTheme } from 'next-themes'
-import { BsMoonFill } from 'react-icons/bs'
-import { BiSolidSun } from 'react-icons/bi'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 
-import Image from 'next/image'
 import {
     AiFillGithub,
     AiFillLinkedin,

@@ -1,7 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Box from '@mui/material/Box'
-import LinearProgress from '@mui/material/LinearProgress'
-import { BsArrowDownShort } from 'react-icons/bs'
 import evolve from '../../public/evolve.png'
 import Image from 'next/image'
 import Link from 'next/link'
