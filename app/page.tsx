@@ -1,7 +1,7 @@
 'use client'
 import HeroSection from './components/HeroSection'
 import About from './components/About'
-import Skills from './components/Skills'
+import Stack from './components/Stack'
 import Contact from './components/Contact'
 import Projects from './components/Projects'
 
@@ -10,7 +10,7 @@ export default function Home() {
         <main>
             <HeroSection />
             <About />
-            <Skills />
+            <Stack />
             <Projects />
             <Contact />
         </main>
