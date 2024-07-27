@@ -5,15 +5,13 @@ import cryptoImg from '../../public/projects/crypto.jpg'
 import netflixImg from '../../public/projects/netflix.jpg'
 import twitchImg from '../../public/projects/twitch.jpg'
 
-export default function Projects() {
+export default function Portfolio() {
   return (
-    <div id="projects" className="my-20">
-      <div className="m-5">
-        <div className="">
-          <h3 className="text-5xl font-bold  text-navy-700 ">My Projects</h3>
-        </div>
+    <div id="portfolio" className="flex flex-col pt-10 w-full items-center ">
+      <div className="w-[80%] md:w-[80%] lg:w-[70%] xl:w-[60%]  2xl:w-[50%]">
+        <h3 className="sectionHeader pb-10   ">Portfolio </h3>
       </div>
-      <div className="grid md:grid-cols-2 gap-8 w-[55%] m-auto">
+      <div className="grid md:grid-cols-2 gap-8 w-[80%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] m-auto">
         <ProjectItem
           title="Online Store"
           subTitle="E-Commerce"

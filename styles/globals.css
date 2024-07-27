@@ -60,22 +60,12 @@
 }
 
 @layer base {
-  .background {
-    @apply bg-gradient-to-br from-gray-400 via-blue-200 to-teal-200;
-  }
-  .stackBg {
-    @apply bg-gradient-to-b from-blue-200 to-purple-200;
-
-    .stackBg-hover {
-      @apply bg-gradient-to-b from-blue-300 to-purple-300;
-    }
-  }
   body {
     @apply background text-gray-700;
   }
 
   p {
-    @apply text-2xl lg:text-3xl  tracking-wider;
+    @apply text-2xl lg:text-3xl;
   }
 
   h1 {
@@ -84,30 +74,47 @@
   h2 {
     @apply text-2xl sm:text-4xl md:text-5xl text-navy-600;
   }
-  Link {
-    @apply cursor-pointer;
+  .background {
+    @apply bg-gradient-to-br from-gray-400 via-blue-200 to-teal-200;
+  }
+  .stackBg {
+    @apply bg-gradient-to-b from-blue-200 to-purple-200;
+  }
+  .stackBg-hover {
+    @apply bg-gradient-to-b from-blue-300 to-purple-300;
+  }
+}
+@layer components {
+  .sectionHeader {
+    @apply text-5xl font-bold text-left text-navy-700;
   }
 
   .callToAction {
-    @apply p-3 hover:bg-teal-600 bg-teal-700 justify-center shadow-md shadow-gray-400 rounded-lg font-semibold text-white tracking-wide transition duration-300;
+    @apply p-3 hover:bg-teal-600 bg-teal-700 justify-center shadow-md shadow-gray-400 rounded-lg font-semibold text-white tracking-wide  duration-100;
   }
   .callToActionSwap {
     @apply p-3 hover:bg-teal-200 bg-teal-100 justify-center shadow-md shadow-gray-400 rounded-lg  font-semibold text-navy-600 tracking-wide transition duration-300;
   }
   .callToActionDark {
-    @apply p-3 hover:bg-navy-600 bg-navy-700 justify-center shadow-md shadow-gray-400 rounded-lg  font-semibold text-white tracking-wide transition duration-300;
+    @apply p-3 hover:bg-navy-600 bg-navy-700 justify-center shadow-md shadow-gray-400 rounded-lg  font-semibold text-white tracking-wide transition duration-100;
+  }
+  .scaleLarger {
+    @apply transform transition duration-100 ease-in hover:scale-105;
   }
   .contactInfo {
-    @apply text-left text-lg pl-0 sm:text-xl md:text-2xl lg:text-3xl font-semibold py-3 md:py-3 text-gray-800;
+    @apply text-left text-3xl md:text-3xl pl-0 lg:text-3xl font-semibold py-3 md:py-3 text-gray-800;
   }
-  .specialText {
+  .heroText {
     @apply bg-gradient-to-br from-navy-700 to-teal-600 text-transparent bg-clip-text;
   }
-  .socialIcons {
-    @apply flex justify-center cursor-pointer hover:bg-gray-100 rounded-full items-center shadow-lg transition duration-300 text-sky-700 p-4;
+  .socialIconContainer {
+    @apply flex justify-center cursor-pointer hover:bg-gray-100 rounded-full items-center shadow-lg transition duration-300 text-sky-700 bg-white bg-opacity-30 w-16 h-16;
+  }
+  .iconSize {
+    @apply w-12 h-12 sm:w-14 sm:h-14 p-1;
   }
   .navItem {
-    @apply cursor-pointer tracking-wide pr-10 uppercase border-transparent text-xl hover:text-teal-600 text-navy-700 transition duration-300;
+    @apply cursor-pointer tracking-wide uppercase border-transparent text-xl hover:text-teal-600 text-navy-700 transition duration-300;
   }
   .hoverUp {
     @apply transition-all duration-300 hover:-translate-y-1 ease-in-out;
@@ -115,9 +122,11 @@
   .hoverDown {
     @apply transition-all duration-300 hover:translate-y-1;
   }
-  .tooltip {
-    @apply bg-gray-700 text-white text-sm rounded py-1 px-2 border-none -translate-y-2;
-  }
+}
+/* styles/globals.css */
+html,
+body {
+  scroll-behavior: auto;
 }
 
 .scroll-downs {
@@ -126,21 +135,23 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 34px;
-  height: 55px;
+  width: 31px; /* 34px * 0.9 ≈ 31px */
+  height: 50px; /* 55px * 0.9 ≈ 50px */
 }
+
 .mousey {
-  width: 3px;
-  padding: 10px 15px;
-  height: 35px;
-  border: 3px solid black;
-  border-radius: 25px;
+  width: 3px; /* 3px * 0.9 ≈ 3px (rounded) */
+  padding: 9px 14px; /* 10px * 0.9 ≈ 9px and 15px * 0.9 ≈ 14px */
+  height: 32px; /* 35px * 0.9 ≈ 32px */
+  border: 3px solid black; /* 3px * 0.9 ≈ 3px (rounded) */
+  border-radius: 23px; /* 25px * 0.9 ≈ 23px */
   opacity: 0.75;
   box-sizing: content-box;
 }
+
 .scroller {
-  width: 3px;
-  height: 10px;
+  width: 3px; /* 3px * 0.9 ≈ 3px (rounded) */
+  height: 9px; /* 10px * 0.9 ≈ 9px */
   border-radius: 25%;
   background-color: black;
   animation-name: scroll;
@@ -148,6 +159,7 @@
   animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
   animation-iteration-count: infinite;
 }
+
 @keyframes scroll {
   0% {
     opacity: 0;
@@ -157,11 +169,32 @@
     opacity: 1;
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(4px); /* 5px * 0.9 ≈ 4px */
     opacity: 1;
   }
   100% {
-    transform: translateY(10px);
+    transform: translateY(9px); /* 10px * 0.9 ≈ 9px */
     opacity: 0;
   }
+}
+/* Targeting the autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* Set background color to maintain the input's style and not use the browser default */
+  transition: background-color 5000s ease-in-out 0s; /* Smooth transition for autofill */
+  /* Set text color */
+  -webkit-text-fill-color: black !important;
+  /* Set a preferred background color if needed */
+  background-color: white !important;
+}
+input,
+textarea {
+  caret-color: black;
 }

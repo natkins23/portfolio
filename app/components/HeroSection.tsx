@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'app/components/ui/tooltip'
+import { LuExternalLink } from 'react-icons/lu'
 import { Link } from 'react-scroll'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 export default function HeroSection() {
   const [isCopied, setIsCopied] = useState(false)
@@ -38,10 +39,10 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="h-[100vh] pt-32">
-      <div className="flex flex-col md:flex-row-reverse items-center animate-fade md:items-start lg:items-center justify-center gap-24">
-        <div className="flex">
-          <div className="relative h-[13rem] w-[13rem] sm:h-[15rem] sm:w-[15rem] md:h-[20rem] md:w-[20rem] lg:h-[25rem] lg:w-[25rem] lg:m-auto xl:h-[30rem] xl:w-[30rem]">
+    <section id="home" className="pt-20 md:pt-40 w-full">
+      <div className="flex flex-col md:flex-row-reverse items-center animate-fade md:items-start justify-center gap-5 md:gap-24 mt-10">
+        <div className="flex ">
+          <div className="relative h-[20rem] w-[20rem] md:h-[22rem] md:w-[22rem] lg:h-[25rem] lg:w-[25rem] ">
             <Image
               src="/portrait.jpg"
               alt="headshot"
@@ -51,120 +52,132 @@ export default function HeroSection() {
             />
           </div>
         </div>
-        <div className="pt-10">
+        <div>
           <div>
-            <h1 className="py-3 text-center animate-fade md:text-left m-auto">
-              Hi, I&apos;m <span className="specialText">Nathan</span>
+            <h1 className="heroText text-center text-6xl md:text-left md:pt-32 animate-fade ">
+              Hi, I&apos;m Nathan
             </h1>
           </div>
           <div>
-            <h2 className="py-3 text-center animate-fade-up animate-delay-1000 md:text-left m-auto">
+            <h3 className="py-3 text-center lg:text-left animate-fade-up animate-delay-1000 text-3xl md:text-left m-auto">
               Front End Developer
-            </h2>
-          </div>
-          <div className="flex md:flex-col">
-            <div className="contactInfo animate-fade-right animate-delay-[1500ms]">
+            </h3>
+            <div className="contactInfo animate-fade-right text-center p-0 md:text-left md:text-2xl animate-delay-[1500ms]">
               Code. Create. Innovate.
             </div>
-            <div className="flex flex-row  py-5">
-              <div className=" animate-fade-down animate-delay-[2000ms]">
+          </div>
+
+          <div className="flex md:flex-col">
+            <div className="flex flex-row pt-5 gap-5 w-full items-center justify-center">
+              <div className="animate-fade-down animate-delay-[2000ms]">
                 <Link
-                  to={`projects`}
+                  to={`portfolio`}
                   className="hover:border-b-2"
                   activeClass="active"
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={0}
                   duration={500}>
-                  <button className="text-4xl p-3 font-bold callToAction">My Projects</button>
+                  <button className="text-2xl md:text-3xl lg:text-4xl p-3 font-bold callToAction ">
+                    Portfolio
+                  </button>
                 </Link>
               </div>
-              <div className=" animate-fade-down animate-delay-[2000ms] pl-20">
+              <div className="animate-fade-down animate-delay-[2000ms] md:pl-5">
                 <Link
-                  to={`projects`}
+                  to={`contact`}
                   className="hover:border-b-2"
                   activeClass="active"
                   spy={true}
                   smooth={true}
                   offset={-100}
                   duration={500}>
-                  <button className="text-4xl p-3 font-bold callToActionSwap">Hire Me!</button>
+                  <button className="text-2xl md:text-3xl lg:text-4xl p-3 font-bold callToActionSwap  whitespace-nowrap">
+                    Reach Out
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-evenly m-auto py-14 flex-wrap w-[50%] lg:w-[80%] xl:w-[70%] animate-fade animate-delay-[3000ms]">
+      <div className="flex items-center justify-between m-auto py-12 md:py-14 w-[80%] xl:w-[50%] lg:w-[70%] animate-fade animate-delay-[3000ms]">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <div className="socialIcons hoverUp">
+              <div className="socialIconContainer hoverUp">
                 <a href="https://github.com/natkins23" target="_blank" rel="noreferrer">
-                  <AiFillGithub size={50} />
+                  <AiFillGithub className="iconSize" />
                 </a>
               </div>
             </TooltipTrigger>
-            <TooltipContent className="tooltip ">
-              <div>Github</div>
+            <TooltipContent className="bg-gray-700 text-white text-sm rounded py-1 px-2 border-none -translate-y-3">
+              <div className="flex gap-1 items-center justify-center">
+                Github
+                <LuExternalLink />
+              </div>
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>
-              <div className="socialIcons hoverUp">
+              <div className="socialIconContainer hoverUp">
                 <a
                   href="https://www.linkedin.com/in/nathancwatkins/"
                   target="_blank"
                   rel="noreferrer">
-                  <AiFillLinkedin size={50} />
+                  <AiFillLinkedin className="iconSize" />
                 </a>
               </div>
             </TooltipTrigger>
-            <TooltipContent className="tooltip ">
-              <div>LinkedIn</div>
+            <TooltipContent className="bg-gray-700 text-white text-sm rounded py-1 px-2 border-none -translate-y-3">
+              <div className="flex gap-1 items-center justify-center ">
+                <div>LinkedIn</div>
+                <LuExternalLink />
+              </div>
             </TooltipContent>
           </Tooltip>
-
           <Tooltip>
             <TooltipTrigger>
-              <div className="socialIcons hoverUp pointer ">
+              <div className="socialIconContainer hoverUp pointer">
                 <a
-                  href="https://docs.google.com/document/d/1nFtRmMs4p0AH695l_hgRAA5BBc1_e-y3L3M5gxyghog/edit#heading=h.rfgvkg2ifhfd"
+                  href="https://drive.google.com/file/d/16FFjyX8zjzu-D8XQbqeQK6PFpXCm6t_s/view?usp=sharing"
                   target="_blank"
                   rel="noreferrer">
-                  <BsFillPersonLinesFill size={50} />
+                  <BsFillPersonLinesFill className="iconSize" />
                 </a>
               </div>
             </TooltipTrigger>
-            <TooltipContent className="tooltip ">
-              <div>Resume</div>
+            <TooltipContent className="bg-gray-700 text-white text-sm rounded py-1 px-2 border-none -translate-y-3">
+              <div>Resume PDF</div>
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>
-              <div className="socialIcons hoverUp" onClick={copyEmail}>
-                <AiOutlineMail size={50} />
+              <div className="socialIconContainer hoverUp" onClick={copyEmail}>
+                <AiOutlineMail className="iconSize" />
               </div>
             </TooltipTrigger>
-            <TooltipContent className="tooltip ">
+            <TooltipContent className="bg-gray-700 text-white text-sm rounded py-1 px-2 border-none -translate-y-3">
               <div>Copy Email</div>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
 
-      <div className="absolute top-28 w-full">
-        <div className="flex justify-center">
+      <div className="fixed top-20 w-full pointer-events-none ">
+        <div className="flex justify-center ">
           <div
-            className={`bg-white opacity-0 p-4 text-2xl rounded-xl ${
-              isCopied ? 'animate-fadeInOut' : ''
+            className={`bg-white  opacity-0 p-4 text-2xl rounded-xl  ${
+              isCopied ? ' animate-fadeInOut' : ''
             }`}>
             ✔️ Email Copied!
           </div>
         </div>
       </div>
 
-      <div className="justify-center]" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+      <div
+        className="flex justify-center items-center"
+        style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <div className="flex animate-fade animate-delay-[5000ms]">
           <div className="scroll-downs">
             <div className="mousey">
